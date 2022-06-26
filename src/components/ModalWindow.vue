@@ -2,12 +2,10 @@
   <div v-if="show" class="modal-shadow" @click.self="closeModal">
     <div class="modal">
       <div class="modal-close" @click="closeModal">&#10006;</div>
-      <slot name="title">
-        <h3 class="modal-title">Заголовок</h3>
-      </slot>
+
       <slot name="body">
         <div class="modal-content">
-          <form-offer></form-offer>
+          <buy-program-form></buy-program-form>
         </div>
       </slot>
       <slot name="footer">
@@ -22,10 +20,10 @@
 </template>
 
 <script>
-import FormOffer from "./forms/FormOffer.vue";
+import BuyProgramForm from "./forms/BuyProgramForm.vue";
 export default {
   name: "ModalWindows",
-  components: { FormOffer },
+  components: { BuyProgramForm },
 
   data: function () {
     return {
@@ -53,9 +51,10 @@ export default {
 .modal {
   background: #fff;
   border-radius: 8px;
-  padding: 15px;
+  padding: 25px;
   min-width: 420px;
   max-width: 480px;
+  height: auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -82,6 +81,7 @@ export default {
 
   &-content {
     margin-bottom: 20px;
+    display: flex;
   }
 
   &-footer {
